@@ -29,7 +29,9 @@ library-codes/
 │   ├── ordered_set.hpp
 │   ├── real_rand.hpp
 │   ├── segbeats.hpp
-│   └── segtree.hpp
+│   ├── segtree.hpp
+│   ├── splay.hpp
+│   └── splay
 └── .gitignore
 ```
 
@@ -94,7 +96,8 @@ Running this task on the active file will generate `combined.cpp` in the same di
 |---------|--------|-------------|
 | **Segment Tree** | `segtree.hpp` | Lazy propagation segment tree. Template parameters: node type `T`, lazy type `L`, merge `op`, apply `mapping`, compose `push`, and identity values `tid`/`lid`. Supports point/range update, point/range query, and `max_right`/`min_left` binary search on the tree. |
 | **Segment Tree Beats** | `segbeats.hpp` | Segment tree with "beats" (conditional updates via `try_apply`). Same interface as `segtree.hpp` but `try_apply` returns whether the lazy was successfully applied — if it fails, the node is broken down further. Useful for problems like range chmin/chmax with sum queries. |
-| **Disjoint Set Union** | `disjoint_set.hpp` | Union-Find with path compression. Use `djs(n)`, `gp(u)` (find), and `un(u, v)` (union, returns `true` if newly merged). |
+| **Disjoint Set Union** | `disjoint_set.hpp` | Union-Find with path compression. 0-indexed. Use `djs(n)`, `gp(u)` (find), and `un(u, v)` (union, returns `true` if newly merged). |
+| **Splay Tree** | `splay.hpp` | Implicit-key splay tree with lazy propagation. Template parameters: node type `T`, lazy type `L`, merge `op`, apply `mapping`, compose `push`, and identity values `tid`/`lid`. Supports insert, erase, split, merge, reverse, shift, range update/query, and `max_right`/`min_left` binary search. |
 | **Ordered Set** | `ordered_set.hpp` | Order-statistics tree backed by GNU `pb_ds`. Supports `find_by_order(k)` and `order_of_key(x)` in O(log n). |
 | **Fragmented Tree** | `fragmentedtree.hpp` | Sqrt-decomposition on trees. Decomposes a tree into O(n/sqrt(n)) fragments of size O(sqrt(n)) each. Provides a framework where you implement per-fragment `get()` and `init()` for custom operations. |
 | **Line Container** | `linecontainer.hpp` | Convex Hull Trick (from KACTL). Maintains a set of lines `y = kx + m` and answers maximum queries. Use `add(k, m)` and `query(x)`. |

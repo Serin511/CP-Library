@@ -4,8 +4,8 @@
 using namespace std;
 struct djs {
 	vector<int> p;
-	djs(int n) : p(n+1) {}
-	int gp(int u) { return p[u]?(p[u]=gp(p[u])):u; }
+	djs(int n) : p(n, -1) {}
+	int gp(int u) { return p[u]!=-1?(p[u]=gp(p[u])):u; }
 	bool un(int u, int v) {
 		u=gp(u), v=gp(v);
 		if (u!=v) p[v]=u;
