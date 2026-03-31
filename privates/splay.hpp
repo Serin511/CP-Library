@@ -22,7 +22,7 @@ struct splay_tree {
 	splay_tree() {}
 	explicit splay_tree(const vector<T> &v) {
 		if (!v.empty()) {
-			nd.resize(v.size()+1);
+			nd.resize(nd.size()+v.size());
 			root=build(v, 0, (int)v.size()-1);
 		}
 	}
